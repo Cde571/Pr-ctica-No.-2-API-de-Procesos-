@@ -1,0 +1,4 @@
+# Comandos básicos
+ls
+pwd
+whoami

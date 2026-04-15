@@ -1,0 +1,155 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Reporte Wish - Práctica 2</title>
+<style>
+  body{font-family:system-ui,Segoe UI,Arial; margin:24px; background:#0b0f14; color:#e6edf3}
+  .top{display:flex; gap:16px; flex-wrap:wrap; align-items:baseline}
+  .pill{background:#111827; border:1px solid #243244; padding:6px 10px; border-radius:999px; color:#c7d2fe}
+  .meta{color:#93a4b8; font-size:12px}
+  .grid{display:grid; grid-template-columns:1fr; gap:12px; margin-top:16px}
+  .card{background:#0f172a; border:1px solid #243244; border-radius:12px; padding:10px}
+  pre{white-space:pre-wrap; word-break:break-word; background:#0b1220; border:1px solid #1f2a3a; border-radius:10px; padding:12px; overflow:auto}
+  details > summary{cursor:pointer; padding:6px 0}
+  h2{margin-top:26px}
+  input{width:100%; padding:10px 12px; border-radius:10px; border:1px solid #243244; background:#0b1220; color:#e6edf3}
+</style>
+</head>
+<body>
+  <div class="top">
+    <h1 style="margin:0">Reporte Wish - Práctica 2</h1>
+    <span class="pill">04/14/2026 20:54:56</span>
+    <span class="pill">wish: 17264 bytes | last write: 04/14/2026 20:36:45</span>
+  </div>
+
+  <p class="meta">Reporte con estructura, logs batch y evidencia de redirección.</p>
+
+  <h2>Buscar en logs</h2>
+  <input id="q" placeholder="Escribe para filtrar (por nombre/contenido)..." oninput="filter()"/>
+
+  <h2>Estructura del proyecto</h2>
+  <div class="card"><pre>
+Name        Mode   Length LastWriteTime           
+----        ----   ------ -------------           
+logs        d-----        14/04/2026 8:49:20 p. m.
+src         d-----        14/04/2026 8:26:30 p. m.
+tests       d-----        14/04/2026 8:26:30 p. m.
+.gitignore  -a---- 31     14/04/2026 8:26:30 p. m.
+Makefile    -a---- 141    14/04/2026 8:26:30 p. m.
+out_err.txt -a---- 57     14/04/2026 8:49:20 p. m.
+out_ls.txt  -a---- 650    14/04/2026 8:49:20 p. m.
+README.md   -a---- 6008   14/04/2026 8:26:30 p. m.
+run_all.sh  -a---- 986    14/04/2026 8:49:10 p. m.
+wish        -a---- 17264  14/04/2026 8:36:45 p. m.
+
+
+</pre></div>
+
+  <h2>Logs (tests/*.txt)</h2>
+  <div id="logs" class="grid">
+    <details class="card">
+  <summary><b>all_tests.log</b> <span class="meta">(0.39 KB)</span></summary>
+  <pre>----- RUNNING: tests/batch_basic.txt -----
+Makefile
+README.md
+logs
+out_err.txt
+out_ls.txt
+run_all.sh
+src
+tests
+wish
+/mnt/c/Users/caco2/Downloads/Practica2_wish_template
+caco2
+
+----- RUNNING: tests/batch_parallel.txt -----
+/mnt/c/Users/caco2/Downloads/Practica2_wish_template
+caco2
+Makefile
+README.md
+logs
+out_err.txt
+out_ls.txt
+run_all.sh
+src
+tests
+wish
+
+----- RUNNING: tests/batch_redir.txt -----
+
+</pre>
+</details>
+<details class="card">
+  <summary><b>batch_basic.txt.log</b> <span class="meta">(0.13 KB)</span></summary>
+  <pre>Makefile
+README.md
+logs
+out_err.txt
+out_ls.txt
+run_all.sh
+src
+tests
+wish
+/mnt/c/Users/caco2/Downloads/Practica2_wish_template
+caco2
+</pre>
+</details>
+<details class="card">
+  <summary><b>batch_parallel.txt.log</b> <span class="meta">(0.13 KB)</span></summary>
+  <pre>/mnt/c/Users/caco2/Downloads/Practica2_wish_template
+caco2
+Makefile
+README.md
+logs
+out_err.txt
+out_ls.txt
+run_all.sh
+src
+tests
+wish
+</pre>
+</details>
+<details class="card">
+  <summary><b>batch_redir.txt.log</b> <span class="meta">(0 KB)</span></summary>
+  <pre></pre>
+</details>
+
+  </div>
+
+  <h2>Evidencia redirección (out_*.txt)</h2>
+  <div id="outs" class="grid">
+    <details class="card">
+  <summary><b>out_ls.txt</b> <span class="meta">(0.63 KB)</span></summary>
+  <pre>total 28
+drwxrwxrwt  7 root  root  4096 Apr 14 20:49 .
+drwxr-xr-x 20 root  root  4096 Apr 14 20:31 ..
+drwxrwxrwx  2 root  root    60 Apr 14 20:31 .X11-unix
+drwx------  2 root  root  4096 Apr 14 20:31 snap-private-tmp
+drwx------  3 root  root  4096 Apr 14 20:31 systemd-private-e6d5831f76fa467cb33d02bca45bac54-systemd-logind.service-67OYKp
+drwx------  3 root  root  4096 Apr 14 20:40 systemd-private-e6d5831f76fa467cb33d02bca45bac54-systemd-resolved.service-L5Lh8a
+drwx------  3 root  root  4096 Apr 14 20:40 systemd-private-e6d5831f76fa467cb33d02bca45bac54-systemd-timesyncd.service-hVl8ZU
+-rw-------  1 caco2 caco2   52 Apr 14 20:49 tmp.N9wYkrvgwb
+</pre>
+</details>
+<details class="card">
+  <summary><b>out_err.txt</b> <span class="meta">(0.06 KB)</span></summary>
+  <pre>ls: cannot access '/noexiste': No such file or directory
+</pre>
+</details>
+
+  </div>
+
+<script>
+function filter(){
+  const q = document.getElementById('q').value.toLowerCase();
+  const cards = document.querySelectorAll('#logs details.card');
+  cards.forEach(d=>{
+    const txt = d.innerText.toLowerCase();
+    d.style.display = txt.includes(q) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>

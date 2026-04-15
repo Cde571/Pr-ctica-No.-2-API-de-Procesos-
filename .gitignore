@@ -1,0 +1,4 @@
+wish
+*.o
+output*.txt
+out_*.txt

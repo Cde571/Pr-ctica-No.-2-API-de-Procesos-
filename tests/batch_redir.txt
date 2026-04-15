@@ -1,0 +1,3 @@
+# Redirección
+ls -la /tmp > out_ls.txt
+ls /noexiste > out_err.txt
